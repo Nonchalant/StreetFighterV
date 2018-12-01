@@ -1,0 +1,11 @@
+strings:
+  inputs: ./StreetFighterV/Resources/en.lproj/Localizable.strings
+  outputs:
+    templateName: flat-swift4
+    output: ./StreetFighterV/Sources/Assets/Localized.swift
+
+xcassets:
+  inputs: ./StreetFighterV/Resources/Assets.xcassets 
+  outputs:
+    templateName: swift4
+    output: ./StreetFighterV/Sources/Assets/ImageAssets.swift

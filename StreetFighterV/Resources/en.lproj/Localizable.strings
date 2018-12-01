@@ -1,0 +1,22 @@
+// - MARK: Type
+"NormalMoves"   = "NORMAL MOVES";
+"UniqueAttacks" = "UNIQUE ATTACKS";
+"NormalThrows"  = "THROWS";
+"VSystem"       = "V-SYSTEM";
+"SpecialMoves"  = "SPECIAL MOVES";
+"CriticalArts"  = "CRITICAL ARTS";
+
+// - MARK: Move
+"MoveName"                          = "Move";
+"MoveStartUp"                       = "Start\nUp";
+"MoveActive"                        = "Active";
+"MoveRecovery"                      = "Recovery";
+"MoveRecoveryOnHit"                 = "Hit";
+"MoveRecoveryOnBlock"               = "Block";
+"MoveVTriggerCancelRecoveryOnHit"   = "VTC\nHit";
+"MoveVTriggerCancelRecoveryOnBlock" = "VTC\nBlock";
+
+// - MARK: Common
+"Character" = "Character";
+"Empty" = "-";
+"Selection" = "▼";

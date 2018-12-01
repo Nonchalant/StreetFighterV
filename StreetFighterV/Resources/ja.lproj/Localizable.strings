@@ -1,0 +1,22 @@
+// - MARK: Type
+"NormalMoves"   = "通常技";
+"UniqueAttacks" = "特殊技";
+"NormalThrows"  = "通常投げ";
+"VSystem"       = "Vシステム";
+"SpecialMoves"  = "必殺技";
+"CriticalArts"  = "CA";
+
+// - MARK: Move
+"MoveName"                          = "技名";
+"MoveStartUp"                       = "発生";
+"MoveActive"                        = "持続";
+"MoveRecovery"                      = "硬直";
+"MoveRecoveryOnHit"                 = "ヒット";
+"MoveRecoveryOnBlock"               = "ガード";
+"MoveVTriggerCancelRecoveryOnHit"   = "VTC\nヒット";
+"MoveVTriggerCancelRecoveryOnBlock" = "VTC\nガード";
+
+// - MARK: Common
+"Character" = "キャラクター";
+"Empty" = "-";
+"Selection" = "▼";
