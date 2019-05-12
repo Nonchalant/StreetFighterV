@@ -16,3 +16,15 @@ $ bundle install
 $ bundle exec pod install
 $ bundle exec fastlane setup
 ```
+
+## Update Data
+
+Download `scripts/.env` from [here](https://github.com/Nonchalant/env/blob/master/StreetFighterV/scripts/.env) (**You need permission**)
+
+And update `ENV["COOKIE"]`
+
+```
+$ bundle install
+$ bundle exec ruby scraping.rb [ja, en]
+// Run google app script
+```
