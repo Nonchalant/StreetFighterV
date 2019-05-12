@@ -1,5 +1,6 @@
-function upload() {
-  ["1i-YEhLRZo8mjB-A1WwQO7nMjwlFPLM6hzIIdqzPGrTI", "1n2WQmwa-jsH4NB_GPp97z34IDZpkeUW8LKm8JQSrAp8"].forEach(function(sheetId) {
+function upload_environment() {
+  // REPLACE ME
+  [ENV["SPREADSHEET_EN_JA"], ENV["SPREADSHEET_EN_EN"]].forEach(function(sheetId) {
     var spreadSheet = SpreadsheetApp.openById(sheetId);
     var characters = getCharacters_(spreadSheet);
     var locale = getLocale_(spreadSheet);
@@ -103,9 +104,9 @@ function getTypeName_(type) {
 
 function uploadJson_(document, locale, json) {
   // REPLACE ME
-  var email = ENV["FIREBASE_EMAIL"];
-  var key = ENV["FIREBASE_KEY"];
-  var projectId = ENV["FIREBASE_PROJECT_ID"];
+  var email = ENV["ENVIRONMENT_FIREBASE_EMAIL"];
+  var key = ENV["ENVIRONMENT_FIREBASE_KEY"];
+  var projectId = ENV["ENVIRONMENT_FIREBASE_PROJECT_ID"];
   
   var firestore = FirestoreApp.getFirestore(email, key, projectId);
   firestore.updateDocument("Characters/" + locale + "/" + document, json);

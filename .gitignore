@@ -9,7 +9,9 @@
 
 ### Swift ###
 ## Xcode
-StreetFighterV/Resources/GoogleService-Info.plist
+StreetFighterV/Resources/GoogleService/GoogleService-Info.Debug.plist
+StreetFighterV/Resources/GoogleService/GoogleService-Info.plist
+StreetFighterV/Resources/GoogleService/GoogleService-Info.Release.plist
 StreetFighterV/Resources/Info.plist
 scripts/fabric.sh
 

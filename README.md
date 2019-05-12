@@ -12,8 +12,8 @@
 Download `fastlane/.env` from [here](https://github.com/Nonchalant/env/blob/master/StreetFighterV/fastlane/.env) (**You need permission**)
 
 ```
+$ brew install xcodegen
 $ bundle install
-$ bundle exec pod install
 $ bundle exec fastlane setup
 ```
 

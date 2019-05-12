@@ -1,0 +1,26 @@
+name: StreetFighterV
+targets:
+  StreetFighterV:
+    type: application
+    platform: iOS
+    sources: StreetFighterV
+    configFiles:
+      Debug: StreetFighterV/Resources/Config/Config.Debug.xcconfig
+      Release: StreetFighterV/Resources/Config/Config.Release.xcconfig
+    preBuildScripts:
+      - name: SwiftGen Run Script
+        script: |
+                $PODS_ROOT/SwiftGen/bin/swiftgen
+      - name: GoogleService-Info.plist
+        script: |
+                if [ "${CONFIGURATION}" = "Debug" ]; then
+                  cp "${SRCROOT}/StreetFighterV/Resources/GoogleService/GoogleService-Info.Debug.plist" "${SRCROOT}/StreetFighterV/Resources/GoogleService/GoogleService-Info.plist"
+                  echo "Debug GoogleService-Info.plist"
+                else
+                  cp "${SRCROOT}/StreetFighterV/Resources/GoogleService/GoogleService-Info.Release.plist" "${SRCROOT}/StreetFighterV/Resources/GoogleService/GoogleService-Info.plist"
+                  echo "Release GoogleService-Info.plist"
+                fi
+    postBuildScripts:
+      - name: Fabric Run Script
+        script: |
+                ./scripts/fabric.sh

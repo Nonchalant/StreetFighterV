@@ -7,29 +7,34 @@ lane :setup do
     output_file_name: "./StreetFighterV/Resources/Info.plist"
   )
 
-  sh "cp ./GoogleService-Info.plist ../StreetFighterV/Resources/GoogleService-Info.plist"
+  ["Debug", "Release"].each do |configuration|
+    sh "cp ./GoogleService-Info.plist ../StreetFighterV/Resources/GoogleService/GoogleService-Info.#{configuration}.plist"
 
-  [
-    "AD_UNIT_ID_FOR_BANNER_TEST",
-    "AD_UNIT_ID_FOR_INTERSTITIAL_TEST",
-    "CLIENT_ID",
-    "REVERSED_CLIENT_ID",
-    "API_KEY",
-    "GCM_SENDER_ID",
-    "PROJECT_ID",
-    "STORAGE_BUCKET",
-    "GOOGLE_APP_ID",
-    "DATABASE_URL"
-  ].each { |key|
-    set_info_plist_value(
-      path: "./StreetFighterV/Resources/GoogleService-Info.plist", 
-      key: key,
-      value: ENV[key], 
-      output_file_name: "./StreetFighterV/Resources/GoogleService-Info.plist"
-    )
-  }
+    [
+      "AD_UNIT_ID_FOR_BANNER_TEST",
+      "AD_UNIT_ID_FOR_INTERSTITIAL_TEST",
+      "CLIENT_ID",
+      "REVERSED_CLIENT_ID",
+      "API_KEY",
+      "GCM_SENDER_ID",
+      "PROJECT_ID",
+      "STORAGE_BUCKET",
+      "GOOGLE_APP_ID",
+      "DATABASE_URL"
+    ].each { |key|
+      set_info_plist_value(
+        path: "./StreetFighterV/Resources/GoogleService/GoogleService-Info.#{configuration}.plist", 
+        key: key,
+        value: ENV["#{configuration.upcase}_#{key}"], 
+        output_file_name: "./StreetFighterV/Resources/GoogleService/GoogleService-Info.#{configuration}.plist"
+      )
+    }
+  end
 
   sh "cp ./fabric.sh ../scripts/fabric.sh"
   sh "sed -i.bak -e 's/FABRIC_API_KEY/#{ENV["FABRIC_API_KEY"]}/g' ../scripts/fabric.sh"
   sh "sed -i.bak -e 's/FABRIC_BUILD_SECRET/#{ENV["FABRIC_BUILD_SECRET"]}/g' ../scripts/fabric.sh"
+
+  sh "xcodegen generate --spec ../project.yml"
+  cocoapods(verbose: true)
 end
