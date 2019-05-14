@@ -38,8 +38,14 @@ internal enum L10n {
   internal static let normalMoves = L10n.tr("Localizable", "NormalMoves")
   /// THROWS
   internal static let normalThrows = L10n.tr("Localizable", "NormalThrows")
+  /// ORIGINAL
+  internal static let original = L10n.tr("Localizable", "Original")
+  /// SEASON
+  internal static let season = L10n.tr("Localizable", "Season")
   /// ▼
   internal static let selection = L10n.tr("Localizable", "Selection")
+  /// Should Never Reach Here
+  internal static let shouldNeverReachHere = L10n.tr("Localizable", "ShouldNeverReachHere")
   /// SPECIAL MOVES
   internal static let specialMoves = L10n.tr("Localizable", "SpecialMoves")
   /// UNIQUE ATTACKS

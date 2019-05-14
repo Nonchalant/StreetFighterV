@@ -8,12 +8,34 @@ class CharacterViewDataSource: NSObject, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.characters.count
+        guard let season = viewModel.seasons[safe: section] else {
+            return 0
+        }
+
+        return viewModel.characters
+            .filter { $0.season == season }
+            .count
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.seasons.count
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.seasons[safe: section]?.title ?? nil
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CharacterCell.reuseIdentifier, for: indexPath) as! CharacterCell
-        cell.textLabel?.text = viewModel.characters[safe: indexPath.row]?.name
+
+        guard let season = viewModel.seasons[safe: indexPath.section],
+            let character = viewModel.characters.filter({ $0.season == season })[safe: indexPath.row] else {
+            Logger.error(L10n.shouldNeverReachHere)
+            assertionFailure(L10n.shouldNeverReachHere)
+            return cell
+        }
+
+        cell.textLabel?.text = character.name
         cell.backgroundColor = (indexPath.row % 2 == 0) ? Color.Background.normal : Color.Background.reverse
         return cell
     }

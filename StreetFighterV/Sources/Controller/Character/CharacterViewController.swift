@@ -44,6 +44,16 @@ class CharacterViewController: UIViewController, NVActivityIndicatorViewable {
 }
 
 extension CharacterViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = Color.Background.section
+        guard let header = view as? UITableViewHeaderFooterView else {
+            Logger.error(L10n.shouldNeverReachHere)
+            assertionFailure(L10n.shouldNeverReachHere)
+            return
+        }
+        header.textLabel?.textColor = Color.Text.title
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 

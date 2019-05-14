@@ -1,7 +1,9 @@
 enum LanguageCode: String {
     case en
     case ja
+}
 
+extension LanguageCode {
     init(rawValue: String) {
         switch rawValue {
         case LanguageCode.en.rawValue:

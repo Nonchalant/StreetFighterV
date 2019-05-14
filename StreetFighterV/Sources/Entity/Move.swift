@@ -1,4 +1,4 @@
-struct Move: Codable {
+struct Move: Decodable {
     let name: String
     let startUp: String
     let active: String
