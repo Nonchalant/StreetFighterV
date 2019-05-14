@@ -57,7 +57,8 @@ extension CharacterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        guard let character = viewModel.characters[safe: indexPath.row] else {
+        guard let season = viewModel.seasons[safe: indexPath.section],
+            let character = viewModel.characters.filter({ $0.season == season })[safe: indexPath.row] else {
             return
         }
 
