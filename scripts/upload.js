@@ -7,9 +7,8 @@ function upload_environment() {
     
     characters.forEach(function(character) {
       key = character[0];
-      name = character[1];
       
-      uploadJson_(key, locale, getJson_(spreadSheet, name));
+      uploadJson_(key, locale, getJson_(spreadSheet, character));
     });
   });
 }
@@ -24,11 +23,17 @@ function getLocale_(spreadSheet) {
   return sheetName.match(/\(([a-z]+)\)/)[0].replace("(", "").replace(")", "");
 }
 
-function getJson_(spreadSheet, name) {
+function getJson_(spreadSheet, character) {
+  var name = character[1];
+  var sequenceId = character[2];
+  var season = character[3];
+
   var sheet = spreadSheet.getSheetByName(name);
   
   var character = {
-    "name": name
+    "name": name,
+    "sequenceId": sequenceId,
+    "season": season
   };
       
   var columns = sheet.getDataRange().getValues()[0];
