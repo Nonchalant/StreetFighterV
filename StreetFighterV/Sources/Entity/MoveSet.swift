@@ -1,4 +1,4 @@
-struct Set: Codable {
+struct MoveSet: Decodable {
     let name: String
     let normalMoves: [Move]
     let uniqueAttacks: [Move]?

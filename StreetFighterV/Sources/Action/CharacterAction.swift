@@ -20,15 +20,19 @@ class CharacterAction: CharacterActionType {
                 return
             }
 
-            let characters = array.compactMap { dictionary -> Character? in
-                do {
-                    return try Character(from: dictionary)
-                } catch {
-                    Logger.error(error.localizedDescription)
-                    assertionFailure(error.localizedDescription)
-                    return nil
+            let characters = array
+                .compactMap { dictionary -> Character? in
+                    do {
+                        return try Character(from: dictionary)
+                    } catch {
+                        Logger.error(error.localizedDescription)
+                        assertionFailure(error.localizedDescription)
+                        return nil
+                    }
                 }
-            }
+                .sorted(by: { (pre, next) -> Bool in
+                    pre.sequenceId < next.sequenceId
+                })
 
             me.characterStore.set(characters: characters)
             completion()

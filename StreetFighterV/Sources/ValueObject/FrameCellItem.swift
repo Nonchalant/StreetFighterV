@@ -11,7 +11,9 @@ enum FrameCellItem {
     case vTriggerCancelRecoveryOnHit(title: String, textColor: UIColor)
     case vTriggerCancelRecoveryOnBlock(title: String, textColor: UIColor)
     case comments(title: String)
+}
 
+extension FrameCellItem {
     var text: String {
         switch self {
         case let .section(title):
@@ -88,9 +90,8 @@ enum FrameCellItem {
             return Const.widthForCommentColumn
 
         case .section:
-            let localizedDescription = "Never Reach Here"
-            Logger.error(localizedDescription)
-            assertionFailure(localizedDescription)
+            Logger.error(L10n.shouldNeverReachHere)
+            assertionFailure(L10n.shouldNeverReachHere)
             return Const.widthForElementColumn
         }
     }
@@ -102,17 +103,6 @@ enum FrameCellItem {
         default:
             return false
         }
-    }
-}
-
-extension FrameCellItem {
-    private enum Const {
-        static let textSize: CGFloat = 14
-        static let textSizeForComments: CGFloat = 12
-
-        static let widthForNameColumn: CGFloat = 110
-        static let widthForElementColumn: CGFloat = 52
-        static let widthForCommentColumn: CGFloat = 200
     }
 }
 
@@ -142,4 +132,15 @@ extension FrameCellItem {
     private static let vTriggerCancelRecoveryOnBlock = FrameCellItem.vTriggerCancelRecoveryOnBlock(title: L10n.moveVTriggerCancelRecoveryOnBlock,
                                                                                                    textColor: Color.Text.normal)
     private static let comments = FrameCellItem.comments(title: L10n.moveComments)
+}
+
+extension FrameCellItem {
+    private enum Const {
+        static let textSize: CGFloat = 14
+        static let textSizeForComments: CGFloat = 12
+
+        static let widthForNameColumn: CGFloat = 110
+        static let widthForElementColumn: CGFloat = 52
+        static let widthForCommentColumn: CGFloat = 200
+    }
 }

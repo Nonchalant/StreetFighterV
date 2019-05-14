@@ -20,4 +20,9 @@
 // - MARK: Common
 "Character" = "Character";
 "Empty" = "-";
+"Original" = "ORIGINAL";
+"Season" = "SEASON";
 "Selection" = "▼";
+
+// - MARK: Development
+"ShouldNeverReachHere" = "Should Never Reach Here";

@@ -1,8 +1,10 @@
 import Foundation
 
-struct Character: Codable {
+struct Character: Decodable {
     let name: String
-    let sets: [Set]
+    let sequenceId: Int
+    let season: Season
+    let sets: [MoveSet]
 }
 
 extension Character {
