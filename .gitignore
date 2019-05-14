@@ -9,11 +9,8 @@
 
 ### Swift ###
 ## Xcode
-StreetFighterV/Resources/GoogleService/GoogleService-Info.Debug.plist
-StreetFighterV/Resources/GoogleService/GoogleService-Info.plist
-StreetFighterV/Resources/GoogleService/GoogleService-Info.Release.plist
-StreetFighterV/Resources/Info.plist
-scripts/fabric.sh
+*.xcodeproj/
+*.xcworkspace/
 
 ## Build generated
 build/
@@ -63,6 +60,14 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/test_output
 fastlane/.env
+
+# Fabric
+StreetFighterV/Resources/Configs/Config.Fabric.xcconfig
+
+# Firebase
+StreetFighterV/Resources/GoogleService/GoogleService-Info.plist
+StreetFighterV/Resources/GoogleService/GoogleService-Info.Debug.plist
+StreetFighterV/Resources/GoogleService/GoogleService-Info.Release.plist
 
 ### OSX ###
 .DS_Store

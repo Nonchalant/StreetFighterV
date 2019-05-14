@@ -104,6 +104,10 @@ GEM
       xcodeproj (>= 1.8.1, < 2.0.0)
       xcpretty (~> 0.3.0)
       xcpretty-travis-formatter (>= 0.0.3)
+    fastlane-plugin-brew (0.1.1)
+    fastlane-plugin-xcconfig (1.0.0)
+    fastlane-plugin-xcodegen (0.1.0)
+      fastlane-plugin-brew (~> 0.1.1)
     fourflusher (2.0.1)
     fuzzy_match (2.0.4)
     gh_inspector (1.1.3)
@@ -215,6 +219,8 @@ DEPENDENCIES
   cocoapods
   dotenv
   fastlane
+  fastlane-plugin-xcconfig
+  fastlane-plugin-xcodegen
   google_drive
   nokogiri
 

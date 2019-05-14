@@ -1,11 +1,12 @@
 lane :setup do
-  set_info_plist_value(
-    path: "./fastlane/Info.plist", 
-    key: "Fabric", 
-    subkey: "APIKey", 
-    value: ENV["FABRIC_API_KEY"], 
-    output_file_name: "./StreetFighterV/Resources/Info.plist"
-  )
+  sh "cp ./Config.Fabric.xcconfig ../StreetFighterV/Resources/Configs/Config.Fabric.xcconfig"
+  ["FABRIC_API_KEY", "FABRIC_BUILD_SECRET"].each do |key|
+    set_xcconfig_value(
+      path: './StreetFighterV/Resources/Configs/Config.Fabric.xcconfig', 
+      name: key, 
+      value: ENV[key]
+    )
+  end
 
   ["Debug", "Release"].each do |configuration|
     sh "cp ./GoogleService-Info.plist ../StreetFighterV/Resources/GoogleService/GoogleService-Info.#{configuration}.plist"
@@ -31,10 +32,6 @@ lane :setup do
     }
   end
 
-  sh "cp ./fabric.sh ../scripts/fabric.sh"
-  sh "sed -i.bak -e 's/FABRIC_API_KEY/#{ENV["FABRIC_API_KEY"]}/g' ../scripts/fabric.sh"
-  sh "sed -i.bak -e 's/FABRIC_BUILD_SECRET/#{ENV["FABRIC_BUILD_SECRET"]}/g' ../scripts/fabric.sh"
-
-  sh "xcodegen generate --spec ../project.yml"
+  xcodegen(spec: "./project.yml")
   cocoapods(verbose: true)
 end

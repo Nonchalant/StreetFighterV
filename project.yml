@@ -5,8 +5,8 @@ targets:
     platform: iOS
     sources: StreetFighterV
     configFiles:
-      Debug: StreetFighterV/Resources/Config/Config.Debug.xcconfig
-      Release: StreetFighterV/Resources/Config/Config.Release.xcconfig
+      Debug: StreetFighterV/Resources/Configs/Config.Debug.xcconfig
+      Release: StreetFighterV/Resources/Configs/Config.Release.xcconfig
     preBuildScripts:
       - name: SwiftGen Run Script
         script: |
@@ -23,4 +23,4 @@ targets:
     postBuildScripts:
       - name: Fabric Run Script
         script: |
-                ./scripts/fabric.sh
+                "${PODS_ROOT}/Fabric/run" $FABRIC_API_KEY $FABRIC_BUILD_SECRET
