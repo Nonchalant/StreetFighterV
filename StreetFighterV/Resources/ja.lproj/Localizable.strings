@@ -15,6 +15,7 @@
 "MoveRecoveryOnBlock"               = "ガード";
 "MoveVTriggerCancelRecoveryOnHit"   = "VTC\nヒット";
 "MoveVTriggerCancelRecoveryOnBlock" = "VTC\nガード";
+"MoveComments"                      = "備考";
 
 // - MARK: Common
 "Character" = "キャラクター";

@@ -82,9 +82,12 @@ CHARACTERS.each do |character|
         move.push(tds[0].css('p')[0].text)
 
         # 技名 ~ Vキャン硬直差(ガード)
-        6.times do |i|
+        7.times do |i|
           move.push(tds[i + 1].text.split('\n')[0])
         end
+
+        # 備考
+        move.push(tds[tds.length - 1].text.strip.gsub(/\n\s+/, "\n"))
 
         moves.push(move)
       end

@@ -7,4 +7,5 @@ struct Move: Codable {
     let recoveryOnBlock: String
     let vTriggerCancelRecoveryOnHit: String
     let vTriggerCancelRecoveryOnBlock: String
+    let comments: String
 }

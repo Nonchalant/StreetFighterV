@@ -18,6 +18,8 @@ internal enum L10n {
   internal static let empty = L10n.tr("Localizable", "Empty")
   /// Active
   internal static let moveActive = L10n.tr("Localizable", "MoveActive")
+  /// Comments
+  internal static let moveComments = L10n.tr("Localizable", "MoveComments")
   /// Move
   internal static let moveName = L10n.tr("Localizable", "MoveName")
   /// Recovery

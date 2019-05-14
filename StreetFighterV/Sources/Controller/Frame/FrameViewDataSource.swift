@@ -17,7 +17,7 @@ class FrameViewDataSource: SpreadsheetViewDataSource {
     }
 
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, widthForColumn column: Int) -> CGFloat {
-        return (column == 0) ? Const.widthForTitleColumn : Const.widthForElementColumn
+        return FrameCellItem.titles[safe: column]?.width ?? 0
     }
 
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, heightForRow row: Int) -> CGFloat {
@@ -25,20 +25,33 @@ class FrameViewDataSource: SpreadsheetViewDataSource {
     }
 
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
-        if indexPath == FrameViewModel.Const.changeSetIndexPath {
+        switch indexPath {
+        case FrameViewModel.Const.changeSetIndexPath:
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: ChangeSetCell.reuseIdentifier, for: indexPath) as! ChangeSetCell
             cell.textLabel.text = viewModel.currentSetName
             return cell
-        } else {
+
+        default:
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: FrameCell.reuseIdentifier, for: indexPath) as! FrameCell
 
-            if let head = viewModel.items[safe: indexPath.row]?.first {
+            // BackgroundColor
+            do {
+                guard let head = viewModel.items[safe: indexPath.row]?.first else {
+                    return cell
+                }
+
                 switch head {
                 case .section:
                     cell.setBackground(with: Color.Background.section)
-                case .move:
+                default:
                     cell.setBackground(with: (indexPath.row % 2 == 0) ? Color.Background.normal : Color.Background.reverse)
                 }
+            }
+
+            if let item = viewModel.items[safe: indexPath.row]?[safe: indexPath.column] {
+                cell.textLabel.text = item.text
+                cell.textLabel.textColor = item.textColor
+                cell.textLabel.font = item.font
             }
 
             // Gridlines
@@ -58,12 +71,6 @@ class FrameViewDataSource: SpreadsheetViewDataSource {
                 }
             }
 
-            if let item = viewModel.items[safe: indexPath.row]?[safe: indexPath.column] {
-                cell.textLabel.text = item.title
-                cell.textLabel.textColor = item.textColor
-                cell.textLabel.font = item.isSection ? UIFont.boldSystemFont(ofSize: Const.textSize) : UIFont.systemFont(ofSize: Const.textSize)
-            }
-
             return cell
         }
     }
@@ -79,11 +86,7 @@ class FrameViewDataSource: SpreadsheetViewDataSource {
 
 extension FrameViewDataSource {
     private enum Const {
-        static let widthForTitleColumn: CGFloat = 110
-        static let widthForElementColumn: CGFloat = 52
         static let heightForRow: CGFloat = 40
-
-        static let textSize: CGFloat = 14
         static let separator: CGFloat = 5.0
     }
 }
