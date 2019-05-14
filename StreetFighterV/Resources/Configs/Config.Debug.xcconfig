@@ -1,0 +1,5 @@
+#include "Pods/Target Support Files/Pods-StreetFighterV/Pods-StreetFighterV.debug.xcconfig"
+#include "Config.Common.xcconfig"
+#include "Config.Fabric.xcconfig"
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+OTHER_SWIFT_FLAGS = "-D" "DEBUG"

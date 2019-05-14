@@ -1,0 +1,3 @@
+#include "Pods/Target Support Files/Pods-StreetFighterV/Pods-StreetFighterV.release.xcconfig"
+#include "Config.Common.xcconfig"
+#include "Config.Fabric.xcconfig"
