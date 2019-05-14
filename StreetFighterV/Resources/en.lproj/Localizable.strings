@@ -15,6 +15,7 @@
 "MoveRecoveryOnBlock"               = "Block";
 "MoveVTriggerCancelRecoveryOnHit"   = "VTC\nHit";
 "MoveVTriggerCancelRecoveryOnBlock" = "VTC\nBlock";
+"MoveComments"                      = "Comments";
 
 // - MARK: Common
 "Character" = "Character";

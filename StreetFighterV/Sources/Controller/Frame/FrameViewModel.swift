@@ -52,9 +52,7 @@ class FrameViewModel: FrameViewModelType {
             return
         }
 
-        var items: [[FrameCellItem]] = [[
-            .name, .startUp, .active, .recovery, .recoveryOnHit, .recoveryOnBlock, .vTriggerCancelRecoveryOnHit, .vTriggerCancelRecoveryOnBlock
-        ]]
+        var items: [[FrameCellItem]] = [FrameCellItem.titles]
 
         [
             (L10n.normalMoves, set.normalMoves),
@@ -69,21 +67,24 @@ class FrameViewModel: FrameViewModelType {
             }
 
             items.append([FrameCellItem.section(title: title)])
-            moves.forEach { move in
-                items.append([
-                    FrameCellItem.move(title: move.name),
-                    FrameCellItem.move(title: move.startUp),
-                    FrameCellItem.move(title: move.active),
-                    FrameCellItem.move(title: move.recovery),
-                    FrameCellItem.move(title: move.recoveryOnHit, textColor: textColor(with: move.recoveryOnHit)),
-                    FrameCellItem.move(title: move.recoveryOnBlock, textColor: textColor(with: move.recoveryOnBlock)),
-                    FrameCellItem.move(title: move.vTriggerCancelRecoveryOnHit, textColor: textColor(with: move.vTriggerCancelRecoveryOnHit)),
-                    FrameCellItem.move(title: move.vTriggerCancelRecoveryOnBlock, textColor: textColor(with: move.vTriggerCancelRecoveryOnBlock))
-                ])
-            }
+            moves.forEach { items.append(subItems(with: $0)) }
         }
 
         self.items = items
+    }
+
+    private func subItems(with move: Move) -> [FrameCellItem] {
+        return [
+            FrameCellItem.name(title: move.name),
+            FrameCellItem.startUp(title: move.startUp),
+            FrameCellItem.active(title: move.active),
+            FrameCellItem.recovery(title: move.recovery),
+            FrameCellItem.recoveryOnHit(title: move.recoveryOnHit, textColor: textColor(with: move.recoveryOnHit)),
+            FrameCellItem.recoveryOnBlock(title: move.recoveryOnBlock, textColor: textColor(with: move.recoveryOnBlock)),
+            FrameCellItem.vTriggerCancelRecoveryOnHit(title: move.vTriggerCancelRecoveryOnHit, textColor: textColor(with: move.vTriggerCancelRecoveryOnHit)),
+            FrameCellItem.vTriggerCancelRecoveryOnBlock(title: move.vTriggerCancelRecoveryOnBlock, textColor: textColor(with: move.vTriggerCancelRecoveryOnBlock)),
+            FrameCellItem.comments(title: move.comments)
+        ]
     }
 
     private func textColor(with frame: String) -> UIColor {
