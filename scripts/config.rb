@@ -177,5 +177,20 @@ CHARACTERS = [
     'url' => 'kage',
     'sheet_title' => 'Kage',
     'tables' => ['1']
+  },
+  {
+    'url' => 'poison',
+    'sheet_title' => 'Poison',
+    'tables' => ['1']
+  },
+  {
+    'url' => 'ehonda',
+    'sheet_title' => 'E.Honda',
+    'tables' => ['1']
+  },
+  {
+    'url' => 'lucia',
+    'sheet_title' => 'Lucia',
+    'tables' => ['1']
   }
 ]
