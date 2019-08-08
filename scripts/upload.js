@@ -8,7 +8,9 @@ function upload_environment() {
     characters.forEach(function(character) {
       key = character[0];
       
-      uploadJson_(key, locale, getJson_(spreadSheet, character));
+      if (key) {
+        uploadJson_(key, locale, getJson_(spreadSheet, character));
+      }
     });
   });
 }
