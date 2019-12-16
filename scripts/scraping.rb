@@ -43,15 +43,10 @@ CHARACTERS.each do |character|
     end
 
     _triggers = []
-    currentTab = ""
-
-    tabs = doc.css('.tab')
-    if !tabs.empty?
-      currentTab = tabs[0].css('.current').text
-    end
+    currentTab = doc.css('.current').text
 
     frameTbls.each do |frameTbl|
-      if currentTab.empty?
+      if currentTab.empty? || currentTab.nil?
         # VT1
         trigger = frameTbl.attribute('vtrigger').text
       else
