@@ -1,6 +1,6 @@
 # StreetFighterV
 
-![Xcode](https://img.shields.io/badge/Xcode-10.2.1-brightgreen.svg)
+![Xcode](https://img.shields.io/badge/Xcode-11.2.1-brightgreen.svg)
 ![Swift](https://img.shields.io/badge/Swift-5.0-brightgreen.svg)
 
 | | |
