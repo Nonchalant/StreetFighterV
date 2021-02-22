@@ -21,7 +21,7 @@ $ bundle exec fastlane setup
 
 Download `scripts/.env` from [here](https://github.com/Nonchalant/env/blob/master/StreetFighterV/scripts/.env) (**You need permission**)
 
-And update `ENV["COOKIE"]`
+And update `ENV["SCIRID"]` `ENV["VMIAL"]` `ENV["NOTIFICATION_JA"]` `ENV["NOTIFICATION_EN"]`
 
 ```
 $ bundle install

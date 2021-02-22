@@ -9,7 +9,7 @@ Dotenv.load
 # ja or en
 language = ARGV[0].nil? ? "ja" : ARGV[0]
 
-cookie = "#{ENV["COOKIE"]}; language=#{language}"
+cookie = "scirid=#{ENV["SCIRID"]}; vmial=#{ENV["VMIAL"]}; notification_ja=#{ENV["NOTIFICATION_JA"]}; notification_en=#{ENV["NOTIFICATION_EN"]}; language=#{language}"
 session = GoogleDrive::Session.from_config("config.json")
 
 sp = session.spreadsheet_by_url(ENV["SPREADSHEET_#{language.upcase}"])
