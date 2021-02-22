@@ -10,6 +10,7 @@ class FrameViewController: UIViewController {
         spreadSheetView.delegate = self
         spreadSheetView.stickyRowHeader = true
         spreadSheetView.stickyColumnHeader = true
+        spreadSheetView.register(BlankCell.self, forCellWithReuseIdentifier: BlankCell.reuseIdentifier)
         spreadSheetView.register(ChangeSetCell.self, forCellWithReuseIdentifier: ChangeSetCell.reuseIdentifier)
         spreadSheetView.register(FrameCell.self, forCellWithReuseIdentifier: FrameCell.reuseIdentifier)
         return spreadSheetView

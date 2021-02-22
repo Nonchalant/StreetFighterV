@@ -5,6 +5,7 @@ class CharacterViewController: UIViewController, NVActivityIndicatorViewable {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = Color.Background.section
         tableView.dataSource = dataSource
         tableView.delegate = self
         tableView.register(CharacterCell.self, forCellReuseIdentifier: CharacterCell.reuseIdentifier)
