@@ -13,7 +13,7 @@ class FrameViewDataSource: SpreadsheetViewDataSource {
     }
 
     func numberOfRows(in spreadsheetView: SpreadsheetView) -> Int {
-        return viewModel.items.count
+        return viewModel.items.count + 1
     }
 
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, widthForColumn column: Int) -> CGFloat {
@@ -21,7 +21,9 @@ class FrameViewDataSource: SpreadsheetViewDataSource {
     }
 
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, heightForRow row: Int) -> CGFloat {
-        return Const.heightForRow
+        return row == viewModel.items.count
+            ? spreadsheetView.safeAreaInsets.bottom
+            : Const.heightForRow
     }
 
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
@@ -36,14 +38,9 @@ class FrameViewDataSource: SpreadsheetViewDataSource {
 
             // BackgroundColor
             do {
-                guard let head = viewModel.items[safe: indexPath.row]?.first else {
-                    return cell
-                }
-
-                switch head {
-                case .section:
+                if case .section = viewModel.items[safe: indexPath.row]?.first {
                     cell.setBackground(with: Color.Background.section)
-                default:
+                } else {
                     cell.setBackground(with: (indexPath.row % 2 == 0) ? Color.Background.normal : Color.Background.reverse)
                 }
             }

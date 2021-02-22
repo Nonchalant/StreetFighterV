@@ -121,7 +121,7 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.7.0)
   - NVActivityIndicatorView/Presenter (4.7.0)
   - Protobuf (3.6.1)
-  - SpreadsheetView (0.8.4)
+  - SpreadsheetView (0.9.1)
   - SwiftGen (6.1.0)
 
 DEPENDENCIES:
@@ -131,11 +131,11 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
   - NVActivityIndicatorView
-  - "SpreadsheetView (from `git@github.com:kishikawakatsumi/SpreadsheetView.git`, branch `ci`)"
+  - SpreadsheetView
   - SwiftGen (~> 6.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - BoringSSL
     - Crashlytics
     - Fabric
@@ -159,16 +159,8 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - Protobuf
     - SwiftGen
-
-EXTERNAL SOURCES:
-  SpreadsheetView:
-    :branch: ci
-    :git: "git@github.com:kishikawakatsumi/SpreadsheetView.git"
-
-CHECKOUT OPTIONS:
-  SpreadsheetView:
-    :commit: 9fc9e3e94a88c507e26af5824b1d23c76cbb6196
-    :git: "git@github.com:kishikawakatsumi/SpreadsheetView.git"
+  trunk:
+    - SpreadsheetView
 
 SPEC CHECKSUMS:
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
@@ -193,9 +185,9 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
-  SpreadsheetView: 15b4c41c049fab4cf2719f8b73142be4e677e404
+  SpreadsheetView: 688dbd19f2b355df0eb09e486266fd913a013449
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
 
-PODFILE CHECKSUM: d8b2f45740ec03e672a1387cc8275b8a8a0f199f
+PODFILE CHECKSUM: d7db33a42be974f132e63e036691616ec50b4525
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.10.1

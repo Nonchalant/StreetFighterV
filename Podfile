@@ -10,6 +10,6 @@ target 'StreetFighterV' do
     pod 'Firebase/Core'
     pod 'Firebase/Firestore'
     pod 'NVActivityIndicatorView'
-    pod 'SpreadsheetView', :git => 'git@github.com:kishikawakatsumi/SpreadsheetView.git', :branch => 'ci'
+    pod 'SpreadsheetView'
     pod 'SwiftGen', '~> 6.0'
 end

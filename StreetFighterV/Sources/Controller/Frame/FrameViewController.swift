@@ -41,6 +41,12 @@ class FrameViewController: UIViewController {
         ].setActive(true)
     }
 
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        spreadSheetView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -view.safeAreaInsets.bottom, right: 0)
+        spreadSheetView.invalidateIntrinsicContentSize()
+    }
+
     private func setupNavigationItems() {
         navigationItem.title = viewModel.characterName
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Color.Text.title]
