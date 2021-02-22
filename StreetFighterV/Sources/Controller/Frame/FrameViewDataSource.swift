@@ -27,11 +27,15 @@ class FrameViewDataSource: SpreadsheetViewDataSource {
     }
 
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
-        switch indexPath {
-        case FrameViewModel.Const.changeSetIndexPath:
+        guard indexPath != FrameViewModel.Const.changeSetIndexPath else {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: ChangeSetCell.reuseIdentifier, for: indexPath) as! ChangeSetCell
             cell.textLabel.text = viewModel.currentSetName
             return cell
+        }
+
+        switch indexPath.row {
+        case viewModel.items.count:
+            return spreadsheetView.dequeueReusableCell(withReuseIdentifier: BlankCell.reuseIdentifier, for: indexPath) as! BlankCell
 
         default:
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: FrameCell.reuseIdentifier, for: indexPath) as! FrameCell
