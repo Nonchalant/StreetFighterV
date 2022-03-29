@@ -222,5 +222,10 @@ CHARACTERS = [
     'url' => 'akira',
     'sheet_title' => 'Akira',
     'tables' => ['1']
+  },
+  {
+    'url' => 'luke',
+    'sheet_title' => 'Luke',
+    'tables' => ['1']
   }
 ]
